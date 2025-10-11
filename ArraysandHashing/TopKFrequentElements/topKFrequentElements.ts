@@ -10,7 +10,7 @@ function topKFrequent(nums : number[], k : number) : number[]
     for (const [key, value] of count)
         freq[value].push(key);
 
-    for (let i = freq.length; i > 0; i--)
+    for (let i = freq.length - 1; i > 0; i--)
     {
         if (!k)
             break;
