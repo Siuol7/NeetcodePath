@@ -5,11 +5,8 @@ function topKFrequent(nums : number[], k : number) : number[]
     const   res : number[] = [];
 
     for (let n of nums)
-    {
-        if (!count.has(n))
-            count.set(n, 0);
-        count.set(n, count.get(n)! + 1);
-    }
+        count.set(n, (count.get(n)|| 0) + 1);
+
     for (const [key, value] of count)
         freq[value].push(key);
 
@@ -17,12 +14,11 @@ function topKFrequent(nums : number[], k : number) : number[]
     {
         if (!k)
             break;
-        for (let j = 0; j < freq[i].length; j++)
+        for (const num of freq[i])
         {
-            if (!k)
-                break;
-            res.push(freq[i][j]);
-            k--;
+            res.push(num);
+            if (res.length == k)
+                return res;
         }
     }
     return res;
