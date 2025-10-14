@@ -1,0 +1,25 @@
+function    validSoduku(board : string[][]) : boolean
+{
+    const row = Array(9).fill(0);
+    const col = Array(9).fill(0);
+    const square = Array(9).fill(0);
+
+    for (let r = 0; r < 9; r++)
+    {
+        for (let c = 0; c < 9; c++)
+        {
+            if (board[r][c] === '.') continue;
+
+            let bitval = +board[r][c] - 1;
+            let squareid = Math.floor(r / 3) * 3 + Math.floor (c / 3);
+
+            if (row[r] & 1 << bitval || col[c] & 1 << bitval || square[squareid] & 1 << bitval)
+                return false;
+            row[r] |= (1 << bitval);
+            col[c] |= (1 << bitval);
+            square[squareid] |= (1 << bitval);
+        }
+    }
+
+    return true;
+}
