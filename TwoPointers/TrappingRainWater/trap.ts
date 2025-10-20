@@ -10,12 +10,18 @@ function    trap(height : number[]) : number
     {
         if (height[left] < height[right])
         {
-            // xu ly left
+            Lcol = Math.max(Lcol, height[left]);
+            res += (Lcol === 0 ? 0 : Lcol - height[left]);
+            left++;
         }
         else
         {
-            // xu ly right
+            Rcol = Math.max(Rcol, height[right]);
+            res += (Rcol === 0 ? 0 : Rcol - height[right]);
+            right--;
         }
     }
     return res;
 }
+
+console.log(trap([0,2,0,3,1,0,1,3,2,1]));
