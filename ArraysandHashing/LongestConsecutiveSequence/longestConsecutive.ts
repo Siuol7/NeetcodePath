@@ -16,5 +16,6 @@ function    longestConsecutive(nums : number[]) : number
     }
     return res;
 }
+
 console.log(longestConsecutive([2,20,4,10,3,4,5]));
 console.log(longestConsecutive([0,3,2,5,4,6,1,1]));

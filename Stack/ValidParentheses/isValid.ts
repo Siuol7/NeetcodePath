@@ -13,6 +13,8 @@ function    isValid(s : string) : boolean
         else
             open.push(c);
     }
+    if (open.length !== 0)
+        return false
     return true;
 }
 
