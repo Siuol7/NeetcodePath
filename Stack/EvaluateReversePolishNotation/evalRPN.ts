@@ -10,7 +10,9 @@ function    evalRPN(tokens : string[]) : number
         }
         else if (c === "-")
         {
-            stack.push(Math.abs(stack.pop()! - stack.pop()!));
+            let a = stack.pop()!;
+            let b = stack.pop()!;
+            stack.push(b - a);
         }
         else if (c === "*")
         {
@@ -20,7 +22,7 @@ function    evalRPN(tokens : string[]) : number
         {
             let a = stack.pop()!;
             let b = stack.pop()!;
-            stack.push(Math.floor(Math.max(a, b) / Math.min(a, b)));
+            stack.push(Math.trunc(b / a));
         }
         else
         {
@@ -43,3 +45,4 @@ function    evalRPN(tokens : string[]) : number
 
 console.log(evalRPN(["1","2","+","3","*","4","-"]));
 console.log(evalRPN(["4","13","5","/","+"]));
+console.log(evalRPN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]));
