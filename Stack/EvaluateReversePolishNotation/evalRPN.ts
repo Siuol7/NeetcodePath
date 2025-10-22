@@ -6,39 +6,21 @@ function    evalRPN(tokens : string[]) : number
     {
         if (c === "+")
         {
-            if (stack.length !== 2)
-            {
-                console.log("Error : not enough numbers");
-                return 0;
-            }
             stack.push(stack.pop()! + stack.pop()!);
         }
         else if (c === "-")
         {
-            if (stack.length !== 2)
-            {
-                console.log("Error : not enough numbers");
-                return 0;
-            }
             stack.push(Math.abs(stack.pop()! - stack.pop()!));
         }
         else if (c === "*")
         {
-            if (stack.length !== 2)
-            {
-                console.log("Error : not enough numbers");
-                return 0;
-            }
             stack.push(stack.pop()! * stack.pop()!);
         }
         else if (c === "/")
         {
-            if (stack.length !== 2)
-            {
-                console.log("Error : not enough numbers");
-                return 0;
-            }
-            stack.push(stack.pop()! / stack.pop()!);
+            let a = stack.pop()!;
+            let b = stack.pop()!;
+            stack.push(Math.floor(Math.max(a, b) / Math.min(a, b)));
         }
         else
         {
@@ -60,3 +42,4 @@ function    evalRPN(tokens : string[]) : number
 }
 
 console.log(evalRPN(["1","2","+","3","*","4","-"]));
+console.log(evalRPN(["4","13","5","/","+"]));
