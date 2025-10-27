@@ -34,5 +34,3 @@ class   MinStack{
     }
 
 }
-
-console.log()

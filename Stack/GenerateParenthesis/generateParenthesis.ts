@@ -12,6 +12,8 @@ function    generateParenthesis(n : number) : string[]
                 for (const right of res[k - i - 1]) 
                     {
                         res[k].push('(' + left + ')' + right);
+                        console.log(`k = ${k} -- i = ${i} -- left = ${left} -- right = ${right}`);
+                        console.log(`res[k] = ${res[k]}`);
                     }
                 }
             }
@@ -20,4 +22,4 @@ function    generateParenthesis(n : number) : string[]
         return res[n];
 }
 
-console.log(generateParenthesis(3));
+console.log(generateParenthesis(2));
